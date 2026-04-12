@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.get('/health', (req, res) => {
+  console.log(' UptimeRobot Ping Received at:', new Date().toISOString());
   res.status(200).json({ message: 'Server is healthy' });
 });
 
