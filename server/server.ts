@@ -1,5 +1,5 @@
-dotenv.config();
 import dotenv from 'dotenv';
+dotenv.config();
 import express, { type Request, type Response } from "express";
 import './config/db'; // connect to the database
 
@@ -9,12 +9,10 @@ const PORT = Number(process.env.PORT) || 3000;
 
 app.use(express.json());
 
-app.get("/", (_req: Request, res: Response) => {
-  res.status(200).json({message: "Server is running"});
-});
+
 
 app.get("/health", (_req: Request, res: Response) => {
-  res.status(200).json({ok: true});
+  res.status(200).json({message: "Server is running", ok: true});
 });
 
 app.use((req: Request, res: Response) => {
