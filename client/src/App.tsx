@@ -1,8 +1,16 @@
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
+import LandingPage from "./pages/landingpage/LandingPage";
+
 
 const App = () => {
-  return (
-    <div>UNISTACK</div>
-  )
-}
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LandingPage />,
+    },
+  ]);
 
-export default App
+  return <RouterProvider router={router} />;
+};
+
+export default App;

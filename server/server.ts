@@ -3,6 +3,7 @@ import express, { type Request, type Response } from "express";
 dotenv.config();
 import './config/db'; // connect to the database
 import morgon from 'morgan';
+import authRouter from './routes/authRouters';
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -10,6 +11,8 @@ const PORT = Number(process.env.PORT) || 3000;
 app.use(morgon('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/auth', authRouter);
 
 
 app.get('/health', (req, res) => {
