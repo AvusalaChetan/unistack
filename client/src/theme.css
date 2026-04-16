@@ -19,6 +19,9 @@
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
     --shadow-md: 0 6px 14px rgba(0, 0, 0, 0.45);
 
+    --hr-color: #fcd34d66;
+
+--btn-gradient: linear-gradient(135deg, rgba(245,158,11,1) 0%, rgba(255,193,116,1) 100%);
     /* shadcn tokens */
     --background: var(--bg-primary);
     --foreground: var(--text-primary);
@@ -60,6 +63,9 @@
     --popover-foreground: var(--text-primary);
     --primary: var(--accent-primary);
     --primary-foreground: #ffffff;
+    --hr-color: #93c5fd66;
+
+--btn-gradient: linear-gradient(135deg, rgba(70,122,232,1) 0%, rgba(74,159,244,1) 100%);
     /* white reads better on blue */
     --secondary: var(--accent-secondary);
     --secondary-foreground: #ffffff;
