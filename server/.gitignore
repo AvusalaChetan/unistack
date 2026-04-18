@@ -10,7 +10,8 @@ yarn-error.log*
 
 # Environment files
 .env
-.env.*
+.env.*1
+
 !.env.example
 
 # OS/editor files

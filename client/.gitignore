@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 .github/skills/obsidian-design-system/SKILLS.md
+.claude/
