@@ -7,25 +7,15 @@ import cors, {type CorsOptions} from "cors";
 
 import authRouter from "./routes/authRouters";
 import instituteRouter from "./routes/instituteRoute";
+
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
-const allowedOrigins = (process.env.CORS_ORIGINS ?? "http://localhost:5173")
-  .split(",")
-  .map((origin) => origin.trim())
-  .filter(Boolean);
-
 const corsOptions: CorsOptions = {
-  origin: (origin, callback) => {
-    // Allow requests without Origin header (e.g. Postman, curl, server-to-server).
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-
-    return callback(new Error("Not allowed by CORS"));
-  },
+  origin: (process.env.CORS_ORIGINS ?? "http://localhost:5173")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean),
 };
 
 app.use(cors(corsOptions));
@@ -44,7 +34,6 @@ app.get("/health", (req, res) => {
 app.use((req: Request, res: Response) => {
   res.status(404).json({message: "Route not found"});
 });
-
 
 app.listen(PORT, () => {
   console.log(`API listening on http://localhost:${PORT}`);

@@ -1,9 +1,9 @@
-import type {NextFunction, Request, Response} from "express";
+import type { NextFunction, Request, Response } from "express";
 import TryCatch from "../lib/trycatch";
-import User from "../models/userModel";
+import { instituteCodeGen } from "../lib/uniqueCodeGen";
 import Institute from "../models/instiuteModel";
+import User from "../models/userModel";
 import uploadInCloudnary from "../service/uploadToCloudnary";
-import {instituteCodeGen} from "../lib/uniqueCodeGen";
 
 export const instituteRegister = TryCatch(
   async (req: Request, res: Response, next: NextFunction) => {
@@ -59,3 +59,5 @@ export const instituteRegister = TryCatch(
     });
   },
 );
+
+

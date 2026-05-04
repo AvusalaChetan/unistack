@@ -41,9 +41,9 @@ const requestSchema = new mongoose.Schema(
       default: "pending",
       enum: ["pending", "accepted", "rejected"],
     },
-    rejectReason: {
+    instituteCode: {
       type: String,
-      trim: true,
+      required: true,
     },
     institute: {
       type: mongoose.Schema.Types.ObjectId,

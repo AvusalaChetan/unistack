@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import {motion} from "framer-motion";
 import {type JSX} from "react";
-import {useLocation} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import PillLabel from "../../components/common/PillLabel";
 import UniStack from "../../components/UniStack";
 import {useThemeSwitcher} from "../../hooks/ThemeSwitcher";
@@ -173,7 +173,7 @@ const LandingPage = (): JSX.Element => {
               background:"var(--btn-gradient)"
             }}
           >
-            Get Started Free
+           <NavLink to={'/auth/register-institute'}> Get Started Free</NavLink>
           </Button>
         </motion.div>
       </section>

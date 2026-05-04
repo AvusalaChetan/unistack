@@ -17,8 +17,10 @@ const userSchema = new mongoose.Schema(
       ref: "Institute",
     },
     instituteCode: {
-      required: true,
       type: String,
+      required:function (): boolean {
+        return this.role === "admin";
+      },
     },
     role: {
       enum: ["admin", "teacher", "student"],
