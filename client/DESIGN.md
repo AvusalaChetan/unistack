@@ -1,7 +1,7 @@
-
 # Design System Specification: High-End SaaS Editorial
 
 ## landing Page
+
 ## 1. Overview & Creative North Star: "The Obsidian Foundry"
 
 This design system is built for precision, high-stakes data, and executive-level clarity. Moving away from the "playful" SaaS tropes of rounded bubbles and bright pastels, this system adopts a **Creative North Star of "The Obsidian Foundry."**

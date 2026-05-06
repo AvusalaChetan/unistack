@@ -1,13 +1,13 @@
-import {themeSlice} from "@/feature/ThemeSlice";
-import {configureStore} from "@reduxjs/toolkit";
-import type {ThemeState} from "@/feature/ThemeSlice";
+import { themeSlice } from '@/feature/ThemeSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import type { ThemeState } from '@/feature/ThemeSlice';
 
-const THEME_KEY = "theme_mode";
+const THEME_KEY = 'theme_mode';
 
-const getInitialTheme = (): ThemeState["mode"] => {
-  if (typeof window === "undefined") return "light";
+const getInitialTheme = (): ThemeState['mode'] => {
+  if (typeof window === 'undefined') return 'light';
   const saved = localStorage.getItem(THEME_KEY);
-  return saved === "dark" || saved === "light" ? saved : "light";
+  return saved === 'dark' || saved === 'light' ? saved : 'light';
 };
 
 export const store = configureStore({
@@ -22,7 +22,7 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-  if (typeof window === "undefined") return;
+  if (typeof window === 'undefined') return;
   const mode = store.getState().themeSlice.mode;
   localStorage.setItem(THEME_KEY, mode);
 });

@@ -12,7 +12,11 @@ export const instituteValidator = [
     .notEmpty()
     .withMessage("Institute type is required")
     .isString()
-    .withMessage("Institute type must be a string"),
+    .withMessage("Institute type must be a string")
+    .isIn(["school", "college", "university", "institute"])
+    .withMessage(
+      "Institute type must be one of: school, college, university, institute",
+    ),
 
   body("name")
     .notEmpty()

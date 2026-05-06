@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema(
     },
     instituteCode: {
       type: String,
-      required:function (): boolean {
+      required: function (): boolean {
         return this.role === "admin";
       },
     },
@@ -32,14 +32,12 @@ const userSchema = new mongoose.Schema(
       required: function (): boolean {
         return this.role === "teacher";
       },
-      unique: true,
     },
     studentId: {
       type: String,
       required: function (): boolean {
         return this.role === "student";
       },
-      unique: true,
     },
     password: {
       type: String,
@@ -47,6 +45,22 @@ const userSchema = new mongoose.Schema(
     },
   },
   {timestamps: true},
+);
+
+userSchema.index(
+  {employeeId: 1},
+  {
+    unique: true,
+    partialFilterExpression: {employeeId: {$type: "string"}},
+  },
+);
+
+userSchema.index(
+  {studentId: 1},
+  {
+    unique: true,
+    partialFilterExpression: {studentId: {$type: "string"}},
+  },
 );
 
 userSchema.pre("save", async function () {

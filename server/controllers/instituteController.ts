@@ -51,7 +51,7 @@ export const instituteRegister = TryCatch(
 
     admin.institute = institute._id;
     await admin.save();
-
+console.log(req.body,req.file)
     res.json({
       message: "Institute registered successfully",
       user: admin,

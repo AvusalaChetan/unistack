@@ -22,6 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env 
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 .github/skills/obsidian-design-system/SKILLS.md
 .claude/
+.vscode/skills/obsidian-design-system/SKILLS.md
+
+/testing

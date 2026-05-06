@@ -14,7 +14,14 @@ const TryCatch =
     try {
       await passedFn(req, res, next);
     } catch (error) {
-      res.status(500).json({message: (error as Error).message});
+      const err = error as Error;
+      console.error("Error in route handler:", err.message, err.stack);
+      res
+        .status(500)
+        .json({
+          message: err.message,
+          error: process.env.NODE_ENV === "development" ? err.stack : undefined,
+        });
     }
   };
 

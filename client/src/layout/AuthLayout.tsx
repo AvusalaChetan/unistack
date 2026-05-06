@@ -1,9 +1,9 @@
-import {Button} from "@/components/ui/button";
-import {Moon, Sun} from "lucide-react";
-import {type JSX} from "react";
-import {NavLink, Outlet} from "react-router-dom";
-import UniStack from "../components/UniStack";
-import {useThemeSwitcher} from "../hooks/ThemeSwitcher";
+import { Button } from '@/components/ui/button';
+import { Moon, Sun } from 'lucide-react';
+import { type JSX } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import UniStack from '../components/UniStack';
+import { useThemeSwitcher } from '../hooks/ThemeSwitcher';
 
 type navlinkType = {
   title: string;
@@ -12,20 +12,22 @@ type navlinkType = {
 
 const AuthLayout = () => {
   return (
-    <main>
+    <main className="h-screen w-screen">
       <Navbar />
-      <Outlet />
+      <div className=" h-fit w-[80%] mx-auto ">
+        <Outlet />
+      </div>
     </main>
   );
 };
 
 const Navbar = (): JSX.Element => {
-  const {mode, toggle} = useThemeSwitcher();
+  const { mode, toggle } = useThemeSwitcher();
 
   const navLinks: navlinkType[] = [
-    {title: "Login", to: "/auth/login"},
-    {title: "Sign up", to: "/auth/signup"},
-    {title: "Institute", to: "/auth/register-institute"},
+    { title: 'Login', to: '/auth/login' },
+    { title: 'Sign up', to: '/auth/signup' },
+    { title: 'Institute', to: '/auth/register-institute' },
   ];
 
   return (
@@ -38,15 +40,15 @@ const Navbar = (): JSX.Element => {
             </div>
 
             <div className=" md:flex md:items-center  md:gap-8  md:w-[60%] lg:mx-auto lg:w-fit">
-              {navLinks.map(({title, to}) => (
+              {navLinks.map(({ title, to }) => (
                 <NavLink
                   key={to}
                   to={to}
-                  className={({isActive}) =>
+                  className={({ isActive }) =>
                     `border-b-2 px-1 py-2 text-sm font-medium transition-colors duration-200 ${
                       isActive
-                        ? "border-amber-400 text-amber-400"
-                        : "border-transparent text-slate-300 hover:text-amber-300"
+                        ? 'border-amber-400 text-amber-400'
+                        : 'border-transparent text-slate-300 hover:text-amber-300'
                     }`
                   }
                 >
@@ -64,7 +66,7 @@ const Navbar = (): JSX.Element => {
                   aria-label="Toggle theme"
                   className="text-amber-400 hover:text-amber-300"
                 >
-                  {mode === "dark" ? <Sun /> : <Moon />}
+                  {mode === 'dark' ? <Sun /> : <Moon />}
                 </Button>
               </div>
             </div>

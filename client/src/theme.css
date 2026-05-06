@@ -1,98 +1,125 @@
 :root,
-[data-theme="dark"] {
-    --bg-primary: #0d0d0d;
-    --bg-secondary: #171717;
-    --bg-tertiary: #202020;
+[data-theme='dark'] {
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #171717;
+  --bg-tertiary: #202020;
 
-    --text-primary: #f7f7f7;
-    --text-secondary: #c7c7c7;
-    --text-tertiary: #a8a8a8;
+  --text-primary: #f7f7f7;
+  --text-secondary: #c7c7c7;
+  --text-tertiary: #a8a8a8;
 
-    --border-color: #2f2f2f;
-    --border-light: #242424;
+  --border-color: #2f2f2f;
+  --border-light: #242424;
 
-    --accent-primary: #f59e0b;
-    --accent-secondary: rgb(236, 157, 30);
-    --hero-gradient: radial-gradient(circle at 50% 92%, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.08) 24%, rgba(245, 158, 11, 0) 58%), linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 52%, rgba(0, 0, 0, 0.28) 100%);
+  --accent-primary: #f59e0b;
+  --accent-secondary: rgb(236, 157, 30);
+  --hero-gradient:
+    radial-gradient(
+      circle at 50% 92%,
+      rgba(245, 158, 11, 0.2) 0%,
+      rgba(245, 158, 11, 0.08) 24%,
+      rgba(245, 158, 11, 0) 58%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0) 52%,
+      rgba(0, 0, 0, 0.28) 100%
+    );
 
-    --radius: 0.5rem;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 6px 14px rgba(0, 0, 0, 0.45);
+  --radius: 0.5rem;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 14px rgba(0, 0, 0, 0.45);
 
-    --hr-color: #fcd34d66;
+  --hr-color: #fcd34d66;
 
---btn-gradient: linear-gradient(135deg, rgba(245,158,11,1) 0%, rgba(255,193,116,1) 100%);
-    /* shadcn tokens */
-    --background: var(--bg-primary);
-    --foreground: var(--text-primary);
-    --card: var(--bg-secondary);
-    --card-foreground: var(--text-primary);
-    --popover: var(--bg-secondary);
-    --popover-foreground: var(--text-primary);
-    --primary: var(--accent-primary);
-    --primary-foreground: #1c1200;
-    --secondary: var(--accent-secondary);
-    --secondary-foreground: #f1f5e6;
-    --muted: var(--bg-tertiary);
-    --muted-foreground: var(--text-secondary);
-    --accent: #2b2b2b;
-    --accent-foreground: var(--text-primary);
-    --border: var(--border-color);
-    --input: #222222;
-    --ring: var(--accent-primary);
+  --btn-gradient: linear-gradient(135deg, rgba(245, 158, 11, 1) 0%, rgba(255, 193, 116, 1) 100%);
+  /* shadcn tokens */
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+  --card: var(--bg-secondary);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-secondary);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: #1c1200;
+  --secondary: var(--accent-secondary);
+  --secondary-foreground: #f1f5e6;
+  --muted: var(--bg-tertiary);
+  --muted-foreground: var(--text-secondary);
+  --accent: #2b2b2b;
+  --accent-foreground: var(--text-primary);
+  --border: var(--border-color);
+  --input: #222222;
+  --ring: var(--accent-primary);
 }
 
-[data-theme="light"] {
-    --bg-primary: #f9f9f6;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #f0f1eb;
-    --text-primary: #121212;
-    --text-secondary: #303030;
-    --text-tertiary: #555555;
-    --border-color: #d9d9d3;
-    --border-light: #ebebe7;
-    --accent-primary: #467ae8;
-    /* blue replaces amber */
-    --accent-secondary: #4a9ff4;
-    --hero-gradient: radial-gradient(circle at 50% 90%, rgba(70, 122, 232, 0.18) 0%, rgba(70, 122, 232, 0.07) 26%, rgba(70, 122, 232, 0) 60%), linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(249, 249, 246, 0.86) 46%, rgba(240, 241, 235, 0.96) 100%);
-    --background: var(--bg-primary);
-    --foreground: var(--text-primary);
-    --card: var(--bg-secondary);
-    --card-foreground: var(--text-primary);
-    --popover: var(--bg-secondary);
-    --popover-foreground: var(--text-primary);
-    --primary: var(--accent-primary);
-    --primary-foreground: #ffffff;
-    --hr-color: #93c5fd66;
-
---btn-gradient: linear-gradient(135deg, rgba(70,122,232,1) 0%, rgba(74,159,244,1) 100%);
-    /* white reads better on blue */
-    --secondary: var(--accent-secondary);
-    --secondary-foreground: #ffffff;
-    --muted: var(--bg-tertiary);
-    --muted-foreground: var(--text-secondary);
-    --accent: #ecece7;
-    --accent-foreground: #1a1a1a;
-    --border: var(--border-color);
-    --input: #f2f2ec;
-    --ring: var(--accent-primary);
-    /* focus rings now blue */
+[data-theme='light'] {
+  --bg-primary: #f9f9f6;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0f1eb;
+  --text-primary: #121212;
+  --text-secondary: #303030;
+  --text-tertiary: #555555;
+  --border-color: #d9d9d3;
+  --border-light: #ebebe7;
+  --accent-primary: #467ae8;
+  /* blue replaces amber */
+  --accent-secondary: #4a9ff4;
+  --hero-gradient:
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(70, 122, 232, 0.18) 0%,
+      rgba(70, 122, 232, 0.07) 26%,
+      rgba(70, 122, 232, 0) 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(249, 249, 246, 0.86) 46%,
+      rgba(240, 241, 235, 0.96) 100%
+    );
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+  --card: var(--bg-secondary);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-secondary);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-primary);
+  --primary-foreground: #ffffff;
+  --hr-color: #93c5fd66;
+  --btn-gradient: linear-gradient(135deg, rgba(70, 122, 232, 1) 0%, rgba(74, 159, 244, 1) 100%);
+  /* white reads better on blue */
+  --secondary: var(--accent-secondary);
+  --secondary-foreground: #ffffff;
+  --muted: var(--bg-tertiary);
+  --muted-foreground: var(--text-secondary);
+  --accent: #ecece7;
+  --accent-foreground: #1a1a1a;
+  --border: var(--border-color);
+  --input: #f2f2ec;
+  --ring: var(--accent-primary);
+  /* focus rings now blue */
 }
 
 html,
 body {
-    font-family: "Manrope", sans-serif;
-    background: radial-gradient(circle at 20% 0%, #1f1f1f 0%, var(--bg-primary) 45%), var(--bg-primary);
-    color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Manrope', sans-serif;
+  background:
+    radial-gradient(circle at 20% 0%, #1f1f1f 0%, var(--bg-primary) 45%), var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
-[data-theme="light"] html,
-[data-theme="light"] body {
-    background: radial-gradient(circle at 20% 0%, #f0f1eb 0%, var(--bg-primary) 45%), var(--bg-primary);
+[data-theme='light'] html,
+[data-theme='light'] body {
+  background:
+    radial-gradient(circle at 20% 0%, #f0f1eb 0%, var(--bg-primary) 45%), var(--bg-primary);
 }
 
 button {
-    cursor: pointer;
-    padding: 0.5rem 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
 }
