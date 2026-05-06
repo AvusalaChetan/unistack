@@ -15,9 +15,14 @@ if (!process.env.FRONTEND_URL) {
   console.log("frontend url is NOT present");
 }
 
+const allowedOrigins: string[] = ["http://localhost:5173"];
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
 app.use(
   cors({
-    origin: ["http://localhost:5173", process.env.FRONTEND_URL].filter(Boolean),
+    origin: allowedOrigins,
     credentials: true,
   }),
 );

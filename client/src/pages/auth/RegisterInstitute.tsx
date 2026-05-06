@@ -92,7 +92,7 @@ const RegisterInstitute = () => {
           <InstitutionalBrandingStep register={register} errors={errors} />
 
           <div className="flex flex-col gap-3 border-t border-(--border-light) pt-6 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs uppercase tracking-[0.1em] text-(--muted-foreground)">
+            <p className="text-xs uppercase tracking-widest text-(--muted-foreground)">
               Already have a setup? Continue from the admin portal.
             </p>
 
