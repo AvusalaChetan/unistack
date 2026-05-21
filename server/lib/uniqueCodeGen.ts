@@ -9,14 +9,17 @@ export const instituteCodeGen = (instituteName: string): string => {
   const base = initials || normalizedName.slice(0, 4).toUpperCase();
   const suffix = Date.now().toString().slice(-4);
 
-  return `${base}${suffix}`;
+  return `${base}-${suffix}`;
 };
 
-/**
- * Generate employee ID: {instituteCode}-{ddmmyy}-{3-random-alphanum}
- * Example: CHS4709-290426-K7X
- */
-export const genEmployeeId = (
+
+ // teacher id or std id in format of [COLLEGE][YEAR][ROLE][SEQUENCE]
+
+// Student: MRIT26S0421
+
+// Employee: MRIT26E0015
+
+export const GenTeacherId = (
   instituteCode: string,
   joinDate: Date = new Date(),
 ): string => {

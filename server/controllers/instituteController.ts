@@ -1,6 +1,6 @@
-import type { NextFunction, Request, Response } from "express";
-import TryCatch from "../lib/trycatch";
-import { instituteCodeGen } from "../lib/uniqueCodeGen";
+import type {NextFunction, Request, Response} from "express";
+import TryCatch from "../lib/helper/trycatch";
+import {instituteCodeGen} from "../lib/uniqueCodeGen";
 import Institute from "../models/instiuteModel";
 import User from "../models/userModel";
 import uploadInCloudnary from "../service/uploadToCloudnary";
@@ -58,5 +58,3 @@ export const instituteRegister = TryCatch(
     });
   },
 );
-
-

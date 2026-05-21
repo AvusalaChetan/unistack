@@ -1,4 +1,6 @@
+import bcrypt from "bcrypt";
 import mongoose from "mongoose";
+
 
 const requestSchema = new mongoose.Schema(
   {
@@ -22,20 +24,7 @@ const requestSchema = new mongoose.Schema(
       required: true,
       enum: ["teacher", "student"],
     },
-    employeeId: {
-      type: String,
-      required: function (): boolean {
-        return this.role === "teacher";
-      },
-      trim: true,
-    },
-    studentId: {
-      type: String,
-      required: function (): boolean {
-        return this.role === "student";
-      },
-      trim: true,
-    },
+  
     status: {
       type: String,
       default: "pending",
@@ -67,5 +56,14 @@ requestSchema.index(
     partialFilterExpression: {status: "pending"},
   },
 );
+
+requestSchema.pre("save", async function () {
+  if (!this.isModified("password")) {
+    return;
+  }
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
 
 export const RequestModel = mongoose.model("Request", requestSchema);

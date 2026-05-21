@@ -7,6 +7,8 @@ import cors, {type CorsOptions} from "cors";
 
 import authRouter from "./routes/authRouters";
 import instituteRouter from "./routes/instituteRoute";
+import User from "./models/userModel";
+import Institute from "./models/instiuteModel";
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
@@ -36,6 +38,11 @@ app.use("/api/institute", instituteRouter);
 app.get("/health", (req, res) => {
   console.log(" UptimeRobot Ping Received at:", new Date().toISOString());
   res.status(200).json({message: "Server is healthy"});
+});
+
+app.get('/count', async (req:Request, res) => {
+  const count = await Institute.countDocuments();
+  res.json({ totalUsers: count });
 });
 
 app.use((req: Request, res: Response) => {

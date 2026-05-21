@@ -1,12 +1,12 @@
 import express from "express";
-import { signup, signin, logout } from "../controllers/authController";
-import {validateSignupRequest} from '../utils/validator'
+import { login, logout, signup } from "../controllers/authController";
+import { loginValidator, signupValidator, validateLoginRequest, validateSignupRequest } from '../utils/validator';
 
 const router = express.Router();
 
-router.post('/signup', validateSignupRequest,signup);
+router.post('/signup', signupValidator,validateSignupRequest,signup);
 
-router.post('/login', signin);
+router.post('/login', loginValidator, validateLoginRequest, login);
 
 router.get('/logout', logout);
 

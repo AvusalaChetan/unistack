@@ -3,13 +3,14 @@ import {
   instituteRegister
 } from "../controllers/instituteController";
 import { upload } from "../middleware/multer";
-import { validateInstituteRequest } from "../utils/validator";
+import { instituteValidator, validateInstituteRequest } from "../utils/validator";
 
 const router = express.Router();
 
 router.post(
   "/register-institute",
   upload.single("institute_logo"),
+  instituteValidator,
   validateInstituteRequest,
   instituteRegister,
 );

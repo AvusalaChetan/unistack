@@ -69,7 +69,34 @@ export const signupValidator = [
   body("role").optional().isString().withMessage("Role must be a string"),
 ];
 
-// Middleware to check validation results for signup (no file required)
+export const loginValidator = [
+  body("email")
+    .trim()
+    .notEmpty()
+    .withMessage("Email is required")
+    .isEmail()
+    .withMessage("Email must be valid")
+    .normalizeEmail(),
+
+  body("password")
+    .notEmpty()
+    .withMessage("Password is required")
+    .isLength({min: 6})
+    .withMessage("Password must be at least 6 characters"),
+];
+
+
+// Middleware to check validation results for login
+export const validateLoginRequest = (req: Request, res: Response, next: NextFunction) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({errors: errors.array()});
+  }
+
+  next();
+}
+
+// Middleware to check validation results for signup 
 export const validateSignupRequest = (
   req: Request,
   res: Response,
