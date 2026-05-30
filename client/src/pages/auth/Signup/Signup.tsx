@@ -1,10 +1,9 @@
 import Footer from '@/components/common/Footer';
 import { useForm } from 'react-hook-form';
-import SignupDetails from './SignupDetails';
 import SignupForm from './SignupForm';
 import { lazy,Suspense } from 'react';
 
-const SignupDetailsL = lazy(() => import('./SignupDetails'))
+const SignupDetails = lazy(() => import('./SignupDetails'))
 
 const Signup = () => {
   const {

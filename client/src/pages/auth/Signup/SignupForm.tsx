@@ -7,9 +7,15 @@ import {
 } from "lucide-react";
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-// {name, email, role, password, instituteCode}
+import type { UseFormRegister, UseFormHandleSubmit, FieldErrors, FieldValues } from 'react-hook-form';
 
-const SignupForm = ({ register, handleSubmit }) => {
+interface SignupFormProps {
+  register: UseFormRegister<FieldValues>;
+  handleSubmit: UseFormHandleSubmit<FieldValues>;
+  errors: FieldErrors<FieldValues>;
+}
+
+const SignupForm = ({ register, handleSubmit, errors }: SignupFormProps) => {
   const [role, setRole] = useState<string | null>(null);
   const [showPassword, setshowPassword] = useState<boolean>(false);
 
@@ -21,7 +27,7 @@ const SignupForm = ({ register, handleSubmit }) => {
 
          <form
         className=""
-        onSubmit={handleSubmit((data) => {
+        onSubmit={handleSubmit((data: FieldValues) => {
           handleApiSubmit({ role, ...data });
         })}
       >
