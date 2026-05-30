@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LandingPage from './pages/landingpage/LandingPage';
-import RegisterInstitute from './pages/auth/RegisterInstitute';
-import Signup from './pages/auth/Signup';
+import RegisterInstitute from './pages/auth/registerInstitute/RegisterInstitute';
+import Signup from './pages/auth/Signup/Signup';
 import Login from './pages/auth/Login';
 import AuthLayout from './layout/AuthLayout';
+import { Toaster } from './components/ui/sonner';
 
 const App = () => {
   const router = createBrowserRouter(
@@ -28,7 +29,12 @@ const App = () => {
       },
     }
   );
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Toaster />
+    </>
+  );
 };
 
 export default App;

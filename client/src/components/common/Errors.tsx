@@ -25,16 +25,16 @@ const Errors = ({
   return (
     <div
       className={cn(
-        'rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-900/20 dark:text-red-200',
+        'rounded-lg border border-red-300 bg-red-50/80 p-4 text-sm text-red-900 shadow-sm dark:border-red-900 dark:bg-red-900/20 dark:text-red-200',
         className
       )}
       role="alert"
     >
       <div className="flex gap-3">
-        <AlertCircle className="h-5 w-5 flex-shrink-0 text-red-600 dark:text-red-400" />
+        <AlertCircle className="h-5 w-5 flex-shrink-0 text-red-900 light:text-red-900 dark:text-red-400" />
         <div className="flex-1">
           {messages.length === 1 && isDismissible && errorEntries.length === 0 ? (
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center justify-between gap-2  ">
               <span>{messages[0]}</span>
               <button
                 onClick={() => onDismiss?.()}

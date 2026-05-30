@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Starter",
+    "price": "₹2,000",
+    "unit": "/mo",
+    "dec": "Perfect for private tutors and labs.",
+    "cta": "Select Tier",
+    "points": [
+      { "label": "Up to 50 Students" },
+      { "label": "100GB Storage" },
+      { "label": "AI Summation", "muted": true }
+    ]
+  },
+  {
+    "name": "Growth",
+    "price": "₹5,000",
+    "unit": "/mo",
+    "dec": "Ideal for growing colleges and institutions.",
+    "cta": "Scale Now",
+    "featured": true,
+    "points": [
+      { "label": "Unlimited Students" },
+      { "label": "1TB Storage" },
+      { "label": "Advanced AI Modules" }
+    ]
+  },
+  {
+    "name": "Enterprise",
+    "price": "₹15,000",
+    "unit": "/mo",
+    "dec": "Full-scale digital transformation.",
+    "cta": "Contact Sales",
+    "points": [
+      { "label": "Custom Infrastructure" },
+      { "label": "24/7 Dedicated Support" },
+      { "label": "Custom SSO Integration" }
+    ]
+  }
+]

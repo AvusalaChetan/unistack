@@ -9,6 +9,7 @@ const insituteSchema = new mongoose.Schema(
     },
     instituteLogo: {
       type: String,
+      require:true
     },
     instituteType: {
       enum: ["school", "college", "university", "institute"],

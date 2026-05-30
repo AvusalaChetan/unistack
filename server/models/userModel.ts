@@ -18,9 +18,8 @@ const userSchema = new mongoose.Schema(
     },
     instituteCode: {
       type: String,
-      required: function (): boolean {
-        return this.role === "admin";
-      },
+      required: [true, "Every user must be linked to an institute code. so enter institute code"],
+      trim: true,
     },
     role: {
       enum: ["admin", "teacher", "student"],
@@ -28,6 +27,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     employeeId: {
+      // here employ === teacher
       type: String,
       required: function (): boolean {
         return this.role === "teacher";
@@ -44,22 +44,22 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
   },
-  {timestamps: true},
+  { timestamps: true },
 );
 
 userSchema.index(
-  {employeeId: 1},
+  { employeeId: 1 },
   {
     unique: true,
-    partialFilterExpression: {employeeId: {$type: "string"}},
+    partialFilterExpression: { employeeId: { $type: "string" } },
   },
 );
 
 userSchema.index(
-  {studentId: 1},
+  { studentId: 1 },
   {
     unique: true,
-    partialFilterExpression: {studentId: {$type: "string"}},
+    partialFilterExpression: { studentId: { $type: "string" } },
   },
 );
 

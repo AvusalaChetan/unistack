@@ -1,7 +1,7 @@
-import { FoundryAdministratorStep } from './registerInstitute/FoundryAdministratorStep';
-import { InstitutionalBrandingStep } from './registerInstitute/InstitutionalBrandingStep';
-import { InstitutionalIdentityStep } from './registerInstitute/InstitutionalIdentityStep';
-import { RegisterInstituteSidebar } from './registerInstitute/RegisterInstituteSidebar';
+import { FoundryAdministratorStep } from './FoundryAdministratorStep';
+import { InstitutionalBrandingStep } from './InstitutionalBrandingStep';
+import { InstitutionalIdentityStep } from './InstitutionalIdentityStep';
+import { RegisterInstituteSidebar } from './RegisterInstituteSidebar';
 import Errors from '@/components/common/Errors';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
@@ -32,6 +32,7 @@ const RegisterInstitute = () => {
       setIsLoading(true);
 
       const formData = new FormData();
+      
       formData.append('instituteName', data.instituteName);
       formData.append('instituteType', data.instituteType);
       formData.append('location', data.location);
@@ -58,15 +59,8 @@ const RegisterInstitute = () => {
 
   return (
     <div className="mx-auto flex min-h-full w-full max-w-7xl flex-col gap-6 px-4 py-6 md:px-6 lg:px-8">
-      <header
-        className="rounded-2xl border border-(--border-light) p-6 md:p-8"
-        style={{
-          background:
-            'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 40%, rgba(245,158,11,0.04) 100%)',
-          boxShadow: 'var(--shadow-sm)',
-        }}
-      >
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-(--accent-primary)">
+      <header className="rounded-2xl border border-(--border-light) bg-gradient-to-br from-white/60 to-orange-50/30 p-6 shadow-sm backdrop-blur-md dark:from-white/5 dark:to-orange-500/5 md:p-8">
+        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.35em] text-(--accent-secondary)">
           Foundry Onboarding
         </p>
 
@@ -101,13 +95,7 @@ const RegisterInstitute = () => {
               disabled={isLoading}
               className="inline-flex h-11 items-center justify-center rounded-none bg-(image:--btn-gradient) px-6 text-sm font-semibold uppercase tracking-[0.18em] text-(--primary-foreground) transition-transform hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              {isLoading ? (
-                <>
-                  Creating...
-                </>
-              ) : (
-                'create Institute'
-              )}
+              {isLoading ? <>Creating...</> : 'create Institute'}
             </button>
           </div>
         </form>

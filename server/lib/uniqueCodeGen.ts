@@ -16,14 +16,13 @@ export const instituteCodeGen = (instituteName: string): string => {
  // teacher id or std id in format of [COLLEGE][YEAR][ROLE][SEQUENCE]
 
 // Student: MRIT26S0421
+// Employee: MRIT26T0015
 
-// Employee: MRIT26E0015
-
-export const GenTeacherId = (
+export const GenTeacherId = ( // need to modify
   instituteCode: string,
   joinDate: Date = new Date(),
 ): string => {
-  // Format join date as ddmmyy
+  
   const dd = String(joinDate.getDate()).padStart(2, "0");
   const mm = String(joinDate.getMonth() + 1).padStart(2, "0");
   const yy = joinDate.getFullYear().toString().slice(-2);
@@ -35,5 +34,5 @@ export const GenTeacherId = (
     random += chars.charAt(Math.floor(Math.random() * chars.length));
   }
 
-  return `${instituteCode}-${dd}${mm}${yy}-${random}`;
+  return `${instituteCode}-${yy}T-${random}`;
 };

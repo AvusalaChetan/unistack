@@ -14,7 +14,7 @@ const AuthLayout = () => {
   return (
     <main className="h-screen w-screen">
       <Navbar />
-      <div className=" h-fit w-[80%] mx-auto ">
+      <div className=" h-full w-[80%] mx-auto ">
         <Outlet />
       </div>
     </main>

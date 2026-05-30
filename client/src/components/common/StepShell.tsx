@@ -3,13 +3,13 @@ import type { ReactNode } from 'react';
 type StepShellProps = {
   step: string;
   title: string;
-  description: string;
-  children: ReactNode;
+  description?: string;
+  children?: ReactNode;
 };
 
 export const StepShell = ({ step, title, description, children }: StepShellProps) => {
   return (
-    <section className="rounded-xl border border-(--border-light) bg-(--bg-secondary)/70 p-4 md:p-5">
+    <section className="rounded-xl  p-4 md:p-4">
       <div className="mb-4 flex items-start justify-between gap-4">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:var(--accent-primary)]">

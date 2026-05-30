@@ -8,6 +8,7 @@ import PillLabel from '../../components/common/PillLabel';
 import UniStack from '../../components/UniStack';
 import { useThemeSwitcher } from '../../hooks/ThemeSwitcher';
 import '../../theme.css';
+import Footer from '../../components/common/Footer';
 
 interface Feature {
   icon?: JSX.Element;
@@ -455,6 +456,7 @@ const LandingPage = (): JSX.Element => {
           </div>
         </div>
       </motion.section>
+      <Footer />
     </main>
   );
 };
@@ -473,7 +475,8 @@ const Navbar = (): JSX.Element => {
     <>
       <nav className="flex items-center lg:justify-around justify-between   py-4 px-6 lg:px-0 shadow-lg">
         <UniStack />
-        <div className="lg:flex items-center justify-center gap-3.5 hidden ">
+        <div className="lg:flex items-center justify-between  w-[18rem]  font-medium text-sm hidden ">
+
           {navLinks.map(({ title, to }: { title: string; to: string }) => {
             const isActive = location.hash === to || (!location.hash && to === '#feature');
 
@@ -493,7 +496,9 @@ const Navbar = (): JSX.Element => {
               </a>
             );
           })}
+
         </div>
+
         <div className="flex items-center justify-center gap-2">
           <Button onClick={toggle}>{mode === 'dark' ? <Sun /> : <Moon />}</Button>
           <Button
@@ -503,7 +508,7 @@ const Navbar = (): JSX.Element => {
               color: 'var(--accent-primary)',
             }}
           >
-            Launch your campuse
+            <a href="/auth/register-institute" className='w-full h-full flex items-center justify-center'>Launch your campus</a>
           </Button>
         </div>
       </nav>

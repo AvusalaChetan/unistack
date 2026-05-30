@@ -1,6 +1,6 @@
 import type { FieldErrors, UseFormRegister } from 'react-hook-form';
-import type { Inputs } from '../RegisterInstitute';
-import { StepShell } from './StepShell';
+import type { Inputs } from './RegisterInstitute';
+import { StepShell } from '../../../components/common/StepShell';
 import Errors from '../../../components/common/Errors';
 
 interface StepProps {

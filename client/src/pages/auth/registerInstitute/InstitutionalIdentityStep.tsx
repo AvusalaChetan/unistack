@@ -1,6 +1,6 @@
 import type { FieldErrors, UseFormRegister } from 'react-hook-form';
-import type { Inputs } from '../RegisterInstitute';
-import { StepShell } from './StepShell';
+import type { Inputs } from './RegisterInstitute';
+import { StepShell } from '../../../components/common/StepShell';
 import Errors from '@/components/common/Errors';
 
 interface StepProps {
@@ -17,13 +17,13 @@ export const InstitutionalIdentityStep = ({ register, errors }: StepProps) => {
     >
       <div className="grid gap-4 md:grid-cols-2">
         <label className="space-y-2 md:col-span-1">
-          <span className="text-xs font-medium uppercase tracking-[0.22em] text-[color:var(--muted-foreground)]">
+          <span className="text-xs font-medium uppercase tracking-[0.22em] text-(--muted-foreground)">
             Institute name
           </span>
           <input
             type="text"
             placeholder="e.g. Stanford University"
-            className="h-11 w-full rounded-none border border-(--border) bg-[color:var(--bg-primary)] px-4 text-sm text-[color:var(--text-primary)] outline-none transition-colors placeholder:text-[color:var(--text-tertiary)] focus:border-[color:var(--accent-primary)]"
+            className="h-11 w-full rounded-none border border-(--border) bg-(--bg-primary) px-4 text-sm text-[color:var(--text-primary)] outline-none transition-colors placeholder:text-[color:var(--text-tertiary)] focus:border-[color:var(--accent-primary)]"
             {...register('instituteName', { required: true })}
           />
           {errors.instituteName && <Errors messages={['Institute name is required']} />}

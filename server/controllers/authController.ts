@@ -47,6 +47,7 @@ export const signup = TryCatch(async (req: Request, res: Response) => {
   userExist(email, res);
   InstituteExist(instituteCode, res);
 
+  // it is created to find institute id
   const institute = await Institute.findOne({
     instituteCode: instituteCode.toUpperCase().trim(),
   });
@@ -97,16 +98,36 @@ export const login = TryCatch(async (req: Request, res: Response) => {
     return res.status(400).json({message: "Invalid email or password"});
   }
 
+  if (!process.env.JWT_SECRET) {
+    return res
+      .status(500)
+      .json({message: "Internal server error ---- JWT secret is not defined"});
+  }
+
   const token = jwt.sign(
     {userId: existingUser._id, role: existingUser.role},
     process.env.JWT_SECRET as string,
     {expiresIn: "3h"},
   );
 
+  res.cookie("token", token, {
+    httpOnly: true,
+    secure: true,
+    maxAge: 3 * 60 * 60 * 1000,
+  });
+  
   res.status(200).json({
     success: true,
     token,
-    user: existingUser,
+    // user: existingUser,
   });
 });
-export const logout = TryCatch(async (req: Request, res: Response) => {});
+
+export const logout = TryCatch(async (req: Request, res: Response) => {
+  res.clearCookie("token", {
+    sameSite: "none",
+    httpOnly: true,
+    secure: true,
+  });
+  res.status(200).json({message: "Logged out successfully"});
+});
