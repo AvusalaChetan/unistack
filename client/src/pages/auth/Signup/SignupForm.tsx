@@ -1,13 +1,15 @@
 import PillLabel from '@/components/common/PillLabel';
 
 import { useFormSubmit } from '@/hooks/FormSubmit';
-import {
-  GraduationCap, 
-  UserRound
-} from "lucide-react";
+import { GraduationCap, UserRound } from 'lucide-react';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import type { UseFormRegister, UseFormHandleSubmit, FieldErrors, FieldValues } from 'react-hook-form';
+import type {
+  UseFormRegister,
+  UseFormHandleSubmit,
+  FieldErrors,
+  FieldValues,
+} from 'react-hook-form';
 
 interface SignupFormProps {
   register: UseFormRegister<FieldValues>;
@@ -15,7 +17,7 @@ interface SignupFormProps {
   errors: FieldErrors<FieldValues>;
 }
 
-const SignupForm = ({ register, handleSubmit, errors }: SignupFormProps) => {
+const SignupForm = ({ register, handleSubmit,errors }: SignupFormProps) => {
   const [role, setRole] = useState<string | null>(null);
   const [showPassword, setshowPassword] = useState<boolean>(false);
 
@@ -23,9 +25,8 @@ const SignupForm = ({ register, handleSubmit, errors }: SignupFormProps) => {
   const { onSubmit: handleApiSubmit, IsLoading } = useFormSubmit({ api });
 
   return (
-    <div className="w-full h-full">  
-
-         <form
+    <div className="w-full h-full">
+      <form
         className=""
         onSubmit={handleSubmit((data: FieldValues) => {
           handleApiSubmit({ role, ...data });
@@ -56,7 +57,8 @@ const SignupForm = ({ register, handleSubmit, errors }: SignupFormProps) => {
             }`}
           >
             <span className="mr-2 text-lg">
-              <UserRound />{/* teacher  */}
+              <UserRound />
+              {/* teacher  */}
             </span>
             Teacher
           </button>
@@ -75,7 +77,7 @@ const SignupForm = ({ register, handleSubmit, errors }: SignupFormProps) => {
               <input
                 type="text"
                 id="name"
-                placeholder="ramash"
+                placeholder="name"
                 className="w-full bg-[#1c1c1c] border border-transparent px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[var(--accent-primary)] transition-colors rounded-sm"
                 {...register('name', { required: true })}
               />
@@ -92,8 +94,15 @@ const SignupForm = ({ register, handleSubmit, errors }: SignupFormProps) => {
                 id="email"
                 placeholder="example@gmail.com"
                 className="w-full bg-[#1c1c1c] border border-transparent px-4 py-3 text-sm text-white placeholder:text-slate-500 focus:outline-none focus:border-[var(--accent-primary)] transition-colors rounded-sm"
-                {...register('email', { required: true })}
+                {...register('email', {
+                  required: true,
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    message: 'invalid email address',
+                  },
+                })}
               />
+              {errors.email && <span className="text-red-500 text-xs mt-1">{errors.email.message as string}</span>}
             </div>
           </div>
         </div>
@@ -158,7 +167,7 @@ const SignupForm = ({ register, handleSubmit, errors }: SignupFormProps) => {
           </div>
         </div>
 
-{/* here after creating acc first go to request Model  */}
+        {/* here after creating acc first go to request Model  */}
         <button
           type="submit"
           className="
@@ -171,10 +180,9 @@ const SignupForm = ({ register, handleSubmit, errors }: SignupFormProps) => {
             active:brightness-95 active:translate-y-0
           "
         >
-          {IsLoading?'loading...':'create Account'}
+          {IsLoading ? 'loading...' : 'create Account'}
         </button>
       </form>
-
     </div>
   );
 };
