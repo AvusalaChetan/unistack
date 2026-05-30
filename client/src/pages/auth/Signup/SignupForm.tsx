@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 // {name, email, role, password, instituteCode}
 
-const SignupForm = ({ register, handleSubmit, errors }) => {
+const SignupForm = ({ register, handleSubmit }) => {
   const [role, setRole] = useState<string | null>(null);
   const [showPassword, setshowPassword] = useState<boolean>(false);
 
